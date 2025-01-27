@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soares Engenharia</title>
+    <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        /* Garantir box-sizing global e impedir overflow */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* Corrigido para box-sizing: border-box */
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            /* Previne o overflow horizontal globalmente */
+        }
+
+        .container {
+            max-width: 100%;
+            margin: auto;
+            padding-left: 25px;
+            padding-right: 25px;
+            width: 100%;
+        }
+
+        /* Ajuste no Banner e detalhes */
+        .banner {
+            background: url(assets/galeria/oi.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            backdrop-filter: blur(2px);
+            overflow: hidden;
+            /* Impede que o banner ultrapasse */
+        }
+
+        .banner .linha {
+            margin-top: 70px;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+        }
+
+        nav {
+            flex: 1;
+            text-align: right;
+        }
+
+        nav ul {
+            display: inline-block;
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--cor-fonte);
+        }
+
+        #detail-2,
+        #detail-3,
+        #detail-4,
+        #detail-5 {
+            max-width: 100%;
+            width: 100%;
+            /* Ajustado para garantir que ocupe 100% da largura */
+            margin: 0;
+            padding: 1em;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            color: #fff;
+            box-sizing: border-box;
+            overflow: hidden;
+            /* Previne overflow */
+        }
+
+        #detail-2 {
+            background-color: var(--cor-padrao);
+        }
+
+        #detail-3 {
+            background-color: #fff;
+        }
+
+        #detail-2 img,
+        #detail-3 img {
+            max-width: 35%;
+            height: auto;
+            box-sizing: border-box;
+        }
+
+        #detail-2 h3,
+        #detail-3 h3 {
+            color: #fff;
+            text-align: center;
+            font-size: 24px;
+            margin: 0 1em;
+        }
+
+        .linha {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .col-2 {
+            margin-top: -5%;
+            flex-basis: 40%;
+            min-width: 300px;
+            box-sizing: border-box;
+        }
+
+        .col-2 img {
+            max-width: 100%;
+            padding: 50px 0;
+        }
+
+        .col-2 h1 {
+            font-size: 50px;
+            line-height: 60px;
+            margin: 25px 0;
+        }
+
+        .col-2 p {
+            font-weight: 600;
+            color: var(--cor-btn-fonte);
+        }
+
+        /* Fix para o problema do overflow */
+        body {
+            overflow-x: hidden;
+            /* Prevenindo overflow horizontal */
+        }
+
+        /* Responsividade */
+        @media (max-width: 800px) {
+            .banner .container .navbar nav ul {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background: var(--cor-btn-fonte);
+                width: 100%;
+                overflow: hidden;
+                transition: max-height 0.5s;
+            }
+
+            .menu-cel {
+                display: block;
+                cursor: pointer;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .linha {
+                text-align: center;
+            }
+
+            .col-2,
+            .col-3,
+            .col-4 {
+                flex-basis: 100%;
+            }
+
+            .rodape-col-3,
+            .rodape-col-4 {
+                text-align: center;
+            }
+
+            .col-4 {
+                font-size: 24px;
+            }
+        }
+
+        /*Estilos adicionais*/
+
+        :root {
+            --cor-padrao: #001432;
+            --cor-padrao-hover: #001430;
+            --cor-fonte: #fff;
+            --cor-fonte-p: #cb9d42;
+            --cor-btn: #001432;
+            --cor-btn-hover: #001430;
+            --cor-btn-fonte: #fff;
+            --cor-fonte-corpo: #001432;
+            --cor-fonte-corpo-leve: #001430;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .banner {
+            background: url(assets/galeria/oi.jpg);
+            background-repeat: no-repeat;
+            width: 100%;
+            background-size: cover;
+            backdrop-filter: blur(2px);
+        }
+
+        .linha {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .col-2 {
+            margin-top: -5%;
+            flex-basis: 40%;
+            min-width: 300px;
+        }
+
+        .col-2 img {
+            max-width: 100%;
+            padding: 50px 0;
+        }
+
+        .col-2 h1 {
+            font-size: 50px;
+            line-height: 60px;
+            margin: 25px 0;
+        }
+
+        .col-2 p {
+            font-weight: 600;
+            color: var(--cor-btn-fonte);
+        }
+
+        .btn {
+            text-decoration: none;
+            color: var(--cor-fonte);
+            background: var(--cor-btn);
+            padding: 8px 30px;
+            margin: 30px 0;
+            border-radius: 5px;
+            transition: background 0.5s;
+        }
+
+        .btn:hover {
+            background: #163752;
+            color: var(--cor-btn-fonte);
+        }
+
+        .categorias {
+            margin: 70px 0;
+        }
+
+        .corpo-categorias {
+            align-items: center;
+            max-width: 1280px;
+            margin: auto;
+            padding-left: 25px;
+            padding-right: 25px;
+            text-align: center;
+        }
+
+        .col-3 {
+            flex-basis: 30%;
+            max-width: 250px;
+            margin-bottom: 30px;
+        }
+
+        .col-3 img {
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+            border: 1px solid #cb9d42;
+        }
+
+        .col-3 p {
+            font-size: 20px;
+            font-weight: bold;
+            color: #001432;
+        }
+
+        #detail-2 {
+            background-color: var(--cor-padrao);
+            width: 100vw;
+            margin: 0;
+            padding: 1em;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            color: #fff;
+        }
+
+        #detail-2 h3 {
+            color: #fff;
+            text-align: center;
+            margin: 0 1em;
+            font-size: 24px;
+        }
+
+        #detail-3 {
+            background-color: #fff;
+            width: 100vw;
+            margin: 0;
+            padding: 1em;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            color: #001432;
+        }
+
+        #detail-3 h3 {
+            color: #001432;
+            margin: 0 1em;
+            font-size: 22px;
+        }
+
+        #detail-4 {
+            background-color: var(--cor-padrao);
+            width: 100%;
+            margin: 0;
+            padding: 1em;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            color: #ffffff;
+            padding: 1em;
+        }
+
+        #detail-4 ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #detail-4 img {
+            border-radius: 5px;
+            border: 1px solid #cb9d42;
+            max-width: 350px;
+            height: auto;
+            margin: 0 1em;
+        }
+
+        #detail-4 h3 {
+            margin-bottom: 20px;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        #detail-5 {
+            background-color: #fff;
+            width: 100%;
+            margin: 0;
+            padding: 1em;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            color: #001432;
+            padding: 1em;
+        }
+
+        #detail-5 ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #detail-5 img {
+            border-radius: 5px;
+            border: 1px solid #cb9d42;
+            max-width: 350px;
+            height: auto;
+            margin: 0 1em;
+        }
+
+        #detail-5 h3 {
+            margin-bottom: 20px;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .titulo {
+            position: relative;
+            font-size: 2.5rem;
+            line-height: 80px;
+            margin: 0 auto 80px;
+            text-align: center;
+            color: var(--cor-fonte-corpo);
+        }
+
+        .titulo::after {
+            content: '';
+            background-color: var(--cor-padrao);
+            width: 80px;
+            height: 5px;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .produtos {
+            display: flex;
+        }
+
+        h4 {
+            color: var(--cor-fonte-corpo);
+            font-weight: 400;
+        }
+
+        .col-4 p {
+            font-size: 14px;
+        }
+
+        .col-4 ion-icon {
+            color: var(--cor-padrao);
+        }
+
+        .ofertas {
+            background: radial-gradient(var(--cor-padrao-hover), var(--cor-padrao));
+            margin-top: 80px;
+            padding: 30px 0;
+        }
+
+        .col-2 .oferta-img {
+            padding: 50px;
+        }
+
+        small {
+            color: var(--cor-btn-fonte);
+        }
+
+        .depoimentos {
+            padding-top: 100px;
+        }
+
+        .depoimentos .col-3 {
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.5s;
+        }
+
+        .depoimentos .col-3:hover {
+            transition: scale(1.1);
+        }
+
+        .depoimentos .col-3 img {
+            width: 50px;
+            border-radius: 50%;
+            margin-top: 20px;
+            border: 2px solid var(--cor-padrao);
+        }
+
+        .depoimento-icone {
+            color: var(--cor-padrao);
+            font-size: 34px;
+        }
+
+        .col-3 p {
+            font-size: 13px;
+            color: var(--cor-fonte-corpo-leve);
+            margin: 12px 0;
+        }
+
+        .depoimentos .col-3 h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--cor-fonte-corpo);
+        }
+
+        .marcas {
+            margin: 100px auto;
+        }
+
+        .col-5 {
+            width: 160px;
+        }
+
+        .col-5 img {
+            width: 100%;
+            cursor: pointer;
+            filter: grayscale(100%);
+            transition: grayscale(0.5s);
+        }
+
+        .col-5 img:hover {
+            filter: grayscale(0%);
+        }
+
+        .rodape {
+            background: var(--cor-btn-fonte);
+            color: var(--cor-fonte);
+            padding: 60px 0 20px;
+            font-size: 14px;
+        }
+
+        .rodape p {
+            color: var(--cor-fonte);
+        }
+
+        .rodape h3 {
+            color: var(--cor-fonte);
+            margin-bottom: 20px;
+        }
+
+        .rodape-col-1,
+        .rodape-col-2,
+        .rodape-col-3,
+        .rodape-col-4 {
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+
+        .rodape-col-1 {
+            flex-basis: 30%;
+        }
+
+        .rodape-col-2 {
+            flex: 1;
+            text-align: center;
+        }
+
+        .rodape-col-2 img {
+            width: 180px;
+            margin-bottom: 20px;
+        }
+
+        .rodape-col-4,
+        .rodape-col-4 {
+            flex-basis: 12%;
+            text-align: right;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        .app-logo {
+            margin-top: 20px;
+        }
+
+        .app-logo img {
+            width: 140px;
+        }
+
+        .menu-cel {
+            display: none;
+            width: 28px;
+            margin-left: 20px;
+        }
+
+        @media (max-width:800px) {
+            .banner .container .navbar nav ul {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background: var(--cor-btn-fonte);
+                width: 100%;
+                overflow: hidden;
+                transition: max-height 0.5s;
+            }
+
+            .menu-cel {
+                display: block;
+                cursor: pointer;
+            }
+        }
+
+        @media (max-width:600px) {
+            .linha {
+                text-align: center;
+            }
+
+            .col-2,
+            .col-3,
+            .col-4 {
+                flex-basis: 100%;
+            }
+
+            .col-2 h1 {
+                font-size: 27px;
+            }
+
+            .rodape-col-3,
+            .rodape-col-4 {
+                text-align: center;
+            }
+
+            .col-4 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="banner">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="assets/galeria/Logo.png" width="120px">
+                </div>
+
+                <nav>
+                    <ul id="MenuItens">
+                        <li><a href="" title="">Iníco</a></li>
+                        <li><a href="produtos.html" title="">Serviços</a></li>
+                        <li><a href="" title="">Sobre</a></li>
+                        <li><a href="" title="">Contatos</a></li>
+                        <li><a href="minha-conta.html" title="Portfólio">Portfólio</a></li>
+                    </ul>
+                </nav>
+
+                <img class="menu-cel" src="assets/img/menu.png" id="menu-icon" onclick="menucel()">
+            </div>
+
+            <div class="linha">
+
+                <div class="col-2">
+                    <h1 style="color: #cb9d42;">Soares Engenharia</h1>
+                    <p> Com 8 anos de atuação no ramo da Engenharia Civil, nossa empresa tem se consolidado
+                        como referência em soluções inovadoras e de alta qualidade.
+                        Ao longo dos anos, adquirimos vasta experiência e conhecimento,
+                        proporcionando aos nossos clientes serviços eficientes e
+                        resultados que atendem às mais exigentes normas do setor.
+                    </p>
+                    <br>
+                    <a href="" class="btn">Mais informações<ion-icon name="arrow-forward-outline"></ion-icon></a>
+                </div>
+                <div class="col-2">
+                    <img src="assets/img/banner-1.png" alt="" srcset="" style="opacity: 0%;">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Separação -->
+
+    <div class="categorias">
+        <div class="corpo-categorias">
+            <div class="linha">
+                <div class="col-3">
+                    <img src="assets/galeria/img-01.jpg">
+                    <p class="col-3-p">
+                        Sicoob UniCentro
+                    </p>
+                </div>
+                <div class="col-3">
+                    <img src="assets/galeria/img-02.jpg">
+                    <p class="col-3-p">
+                        BRB - Banco de Brasília
+                    </p>
+                </div>
+                <div class="col-3">
+                    <img src="assets/galeria/img-03.jpg">
+                    <p class="col-3-p">
+                        LaFerri Loja
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Separação -->
+
+    <h2 class="titulo">Nossos Serviços</h2>
+
+    <section id="details">
+        <div class="detail" id="detail-2">
+            <div class="detail-description">
+                <h3>Construção e Reforma</h3>
+                <ul>
+                    <li>Execução de obras </li>
+                    <li>residenciais comerciais e</li>
+                    <li>industriais, públicas</li>
+                    <li>garantindo qualidade e</li>
+                    <li>respeito aos prazos.</li>
+                </ul>
+            </div>
+            <img src="assets/galeria/hrz-2.webp" alt="" />
+        </div>
+
+        <div class="detail" id="detail-3">
+            <img src="assets/galeria/hrz-3.jpg" alt="" />
+            <div class="detail-description">
+                <h3>Individualização de Hidrômetros</h3>
+                <ul>
+                    <li>Implementação de sistemas</li>
+                    <li>para controle individual de</li>
+                    <li>consumo de água.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="detail" id="detail-2">
+            <div class="detail-description">
+                <h3>Obras de Infraestrutura</h3>
+                <ul>
+                    <li>Drenagem, pavimentação e </li>
+                    <li>urbanização, essenciais para</li>
+                    <li>o desenvolvimento urbano e</li>
+                    <li>rural.</li>
+                </ul>
+            </div>
+            <img src="assets/galeria/hrz-4.jpg" alt="" />
+        </div>
+
+        <div class="detail" id="detail-3">
+            <img src="assets/galeria/hrz-5.jpg" alt="" />
+            <div class="detail-description">
+                <h3>Consultoria Técnica</h3>
+                <ul>
+                    <li>Orientação e análise para</li>
+                    <li>soluções eficientes e</li>
+                    <li>seguras.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="detail" id="detail-2">
+            <div class="detail-description">
+                <h3>Laudos e Perícias Técnicas</h3>
+                <ul>
+                    <li>Análises detalhadas de</li>
+                    <li>condições estruturais, com</li>
+                    <li>soluções para patologias e</li>
+                    <li>reforços necessários</li>
+                </ul>
+            </div>
+            <img src="assets/galeria/hrz-6.webp" alt="" />
+        </div>
+
+        <div class="detail" id="detail-3">
+            <img src="assets/galeria/hrz-7.jpg" alt="" />
+            <div class="detail-description">
+                <h3>Gestão de Obras</h3>
+                <ul>
+                    <li>Acompanhamento contínuo,</li>
+                    <li>desde o planejamento até a</li>
+                    <li>entrega final, assegurando a</li>
+                    <li>conformidade com as normas</li>
+                    <li>e regulamentos.</li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Separação -->
+
+    <h2 class="titulo">Nossas Obras</h2>
+
+    <section id="details">
+        <div class="detail" id="detail-4">
+            <div class="detail-description">
+                <h3>Sicoob UniCentro</h3>
+                <ul>
+                    <img src="assets/galeria/hrz-5.jpg" alt="" srcset="">
+                    <img src="assets/galeria/hrz-5.jpg" alt="" srcset="">
+                    <img src="assets/galeria/hrz-6.webp" alt="" srcset="">
+                </ul>
+            </div>
+            <img src="assets/galeria/" alt="" />
+        </div>
+
+        <div class="detail" id="detail-5">
+            <div class="detail-description">
+                <h3>LaFerri Loja</h3>
+                <ul>
+                    <img src="assets/galeria/hrz-5.jpg" alt="" srcset="">
+                    <img src="assets/galeria/hrz-5.jpg" alt="" srcset="">
+                    <img src="assets/galeria/hrz-6.webp" alt="" srcset="">
+                </ul>
+            </div>
+            <img src="assets/galeria/" alt="" />
+        </div>
+
+        <div class="detail" id="detail-4">
+            <div class="detail-description">
+                <h3>Fazenda Palmital</h3>
+                <ul>
+                    <img src="assets/galeria/hrz-5.jpg" alt="" srcset="">
+                    <img src="assets/galeria/hrz-5.jpg" alt="" srcset="">
+                    <img src="assets/galeria/hrz-6.webp" alt="" srcset="">
+                </ul>
+            </div>
+            <img src="assets/galeria/" alt="" />
+        </div>
+
+        <div class="detail" id="detail-5">
+            <div class="detail-description">
+                <h3>Hidrômetros</h3>
+                <ul>
+                    <img src="assets/galeria/hrz-5.jpg" alt="" srcset="">
+                    <img src="assets/galeria/hrz-5.jpg" alt="" srcset="">
+                    <img src="assets/galeria/hrz-6.webp" alt="" srcset="">
+                </ul>
+            </div>
+            <img src="assets/galeria/" alt="" />
+        </div>
+
+        <div class="detail" id="detail-4">
+            <div class="detail-description">
+                <h3>Fazenda Palmital</h3>
+                <ul>
+                    <img src="assets/galeria/hrz-5.jpg" alt="" srcset="">
+                    <img src="assets/galeria/hrz-5.jpg" alt="" srcset="">
+                    <img src="assets/galeria/hrz-6.webp" alt="" srcset="">
+                </ul>
+            </div>
+            <img src="assets/galeria/" alt="" />
+        </div>
+
+
+
+    </section>
+
+
+    <!-- Separação -->
+
+    <div class="depoimentos">
+        <div class="corpo-categorias">
+            <div class="linha">
+
+                <div class="col-3">
+                    <ion-icon name="ribbon" class="depoimento-icone"></ion-icon>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                    <div class="classificacao">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                    </div>
+                    <img src="assets/img/cliente-1.png" alt="">
+                    <h3>Maykon</h3>
+                </div>
+
+                <div class="col-3">
+                    <ion-icon name="ribbon" class="depoimento-icone"></ion-icon>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                    <div class="classificacao">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                    </div>
+                    <img src="assets/img/cliente-2.png" alt="">
+                    <h3>Maykon</h3>
+                </div>
+
+                <div class="col-3">
+                    <ion-icon name="ribbon" class="depoimento-icone"></ion-icon>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                    <div class="classificacao">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                    </div>
+                    <img src="assets/img/cliente-3.png" alt="">
+                    <h3>Maykon</h3>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Separação -->
+
+    <div class="marcas">
+        <div class="corpo-categorias">
+            <div class="linha">
+                
+                <div class="col-5">
+                    <img src="assets/galeria/1.png" alt="">
+                </div>
+
+                <div class="col-5">
+                    <img src="assets/galeria/2.png" alt="">
+                </div>
+
+                <div class="col-5">
+                    <img src="assets/galeria/3.png" alt="">
+                </div>
+
+                <div class="col-5">
+                    <img src="assets/galeria/4.png" alt="">
+                </div>
+
+                <div class="col-5">
+                    <img src="assets/galeria/08 (3).png" alt="">
+                </div>
+
+                <div class="col-5">
+                    <img src="assets/galeria/08 (2).png" alt="">
+                </div>
+
+                <div class="col-5">
+                    <img src="assets/galeria/08 (1).png" alt="">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Separação -->
+
+    <footer class="rodape">
+        <div class="container">
+            <div class="linha">
+
+                <div class="rodape-col-1">
+                    <h3>Baixe nosso app</h3>
+                    <p>Baixe nossos aplicativos na plataformas</p>
+                    <div class="app-logo">
+                        <img src="assets/img/google.png" alt="">
+                        <img src="assets/img/apple.png" alt="">
+                    </div>
+                </div>
+
+                <div class="rodape-col-2">
+                    <img src="assets/galeria/Logo.png" alt="">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                </div>
+
+                <div class="rodape-col-3">
+                    <h3>Mais informaçõs</h3>
+                    <ul>
+                        <li>Cupons</li>
+                        <li>blog</li>
+                        <li>Política de privacidade</li>
+                        <li>Contatos</li>
+                    </ul>
+                </div>
+
+                <div class="rodape-col-4">
+                    <h3>Redes sociais</h3>
+                    <ul>
+                        <li>Facebook</li>
+                        <li>intagram</li>
+                        <li>WhatsApp</li>
+                        <li>Youtube</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        function menucel() {
+            var menuItens = document.getElementById("MenuItens");
+            if (menuItens.style.display === "none") {
+                menuItens.style.display = "block";
+            } else {
+                menuItens.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Virtual</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: 0;
+        }
+
+        :root {
+            --cor-padrao: #ff523b;
+            --cor-padrao-hover: #f3b2e5;
+            --cor-fonte: #fff;
+            --cor-fonte-p: #555;
+            --cor-btn: #563434;
+            --cor-btn-hover: #15ff00;
+            --cor-btn-fonte: #000;
+            --cor-fonte-corpo: #555;
+            --cor-fonte-corpo-leve: #777;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            max-width: 1300;
+            margin: auto;
+            margin-left: 25px;
+            margin-right: 25px;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+        }
+
+        nav {
+            flex: 1;
+            text-align: right;
+        }
+
+        nav ul {
+            display: inline-block;
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--cor-fonte);
+        }
+
+        p {
+            color: var(--cor-fonte-p);
+        }
+
+        .linha {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .col-2 {
+            flex-basis: 50%;
+            min-width: 300px;
+        }
+
+        .col-2 img {
+            max-width: 100%;
+            padding: 50px 0;
+        }
+
+        .col-2 h1 {
+            font-size: 50px;
+            line-height: 60px;
+            margin: 25px 0;
+        }
+
+        .col-2 p {
+            font-weight: 600;
+            color: var(--cor-btn-fonte);
+        }
+
+        .btn {
+            text-decoration: none;
+            color: var(--cor-fonte);
+            background: var(--cor-btn);
+            padding: 8px 30px;
+            margin: 30px 0;
+            border-radius: 5px;
+            transition: background 0.5s;
+        }
+
+        .btn:hover {
+            background: var(--cor-btn-hover);
+            color: var(--cor-btn-fonte);
+        }
+
+        /*Fim edite banner*/
+
+        .categorias {
+            margin: 70px 0;
+        }
+
+        .corpo-categorias {
+            max-width: 1080px;
+            margin: auto;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        .col-3 {
+            flex-basis: 30%;
+            max-width: 250px;
+            margin-bottom: 30px;
+        }
+
+        .col-3 img {
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .col-4 {
+            flex-basis: 25%;
+            max-width: 200px;
+            padding: 10px;
+            margin-bottom: 50px;
+            transition: transform 0.5s;
+        }
+
+        .col-4:hover {
+            transform: scale(1.1);
+        }
+
+        .col-4 img {
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .titulo {
+            position: relative;
+            line-height: 60px;
+            margin: 0 auto 80px;
+            text-align: center;
+            color: var(--cor-fonte-corpo);
+        }
+
+        .titulo::after {
+            content: '';
+            background-color: var(--cor-padrao);
+            width: 80px;
+            height: 5px;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .produtos {
+            display: flex;
+        }
+
+        h4 {
+            color: var(--cor-fonte-corpo);
+            font-weight: 400;
+        }
+
+        .col-4 p {
+            font-size: 14px;
+        }
+
+        .col-4 ion-icon {
+            color: var(--cor-padrao);
+        }
+
+        .ofertas {
+            background: radial-gradient(var(--cor-padrao-hover), var(--cor-padrao));
+            margin-top: 80px;
+            padding: 30px 0;
+        }
+
+        .col-2 .oferta-img {
+            padding: 50px;
+        }
+
+        small {
+            color: var(--cor-btn-fonte);
+        }
+
+        .depoimentos {
+            padding-top: 100px;
+        }
+
+        .depoimentos .col-3 {
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.5s;
+        }
+
+        .depoimentos .col-3:hover {
+            transition: scale(1.1);
+        }
+
+        .depoimentos .col-3 img {
+            width: 50px;
+            border-radius: 50%;
+            margin-top: 20px;
+            border: 2px solid var(--cor-padrao);
+        }
+
+
+
+        .depoimento-icone {
+            color: var(--cor-padrao);
+            font-size: 34px;
+        }
+
+        .col-3 p {
+            font-size: 13px;
+            color: var(--cor-fonte-corpo-leve);
+            margin: 12px 0;
+        }
+
+        .depoimentos .col-3 h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--cor-fonte-corpo);
+        }
+
+        .marcas {
+            margin: 100px auto;
+        }
+
+        .col-5 {
+            width: 160px;
+        }
+
+        .col-5 img {
+            width: 100%;
+            cursor: pointer;
+            filter: grayscale(100%);
+            transition: grayscale(0.5s);
+        }
+
+        .col-5 img:hover {
+            filter: grayscale(0%);
+        }
+
+        .rodape {
+            background: var(--cor-btn-fonte);
+            color: var(--cor-fonte);
+            padding: 60px 0 20px;
+            font-size: 14px;
+        }
+
+        .rodape p {
+            color: var(--cor-fonte);
+        }
+
+        .rodape h3 {
+            color: var(--cor-fonte);
+            margin-bottom: 20px;
+        }
+
+        .rodape-col-1,
+        .rodape-col-2,
+        .rodape-col-3,
+        .rodape-col-4 {
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+
+        .rodape-col-1 {
+            flex-basis: 30%;
+        }
+
+        .rodape-col-2 {
+            flex: 1;
+            text-align: center;
+        }
+
+        .rodape-col-2 img {
+            width: 180px;
+            margin-bottom: 20px;
+        }
+
+        .rodape-col-4,
+        .rodape-col-4 {
+            flex-basis: 12%;
+            text-align: right;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        .app-logo {
+            margin-top: 20px;
+        }
+
+        .app-logo img {
+            width: 140px;
+        }
+
+        .menu-cel {
+            display: none;
+            width: 28px;
+            margin-left: 20px;
+        }
+
+        .novoMenu ul li a {
+            color: var(--cor-btn-fonte);
+        }
+
+        .novoMenu {
+            box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .linha-2 {
+            margin: 100px auto 50px;
+            justify-content: space-between;
+        }
+
+        .linha-2 select {
+            padding: 5px;
+            border: 1px solid var(--cor-padrao);
+        }
+
+        .linha-2 select:focus {
+            outline: none;
+        }
+
+        .paginacao {
+            margin: 0 auto 80px;
+        }
+
+        .paginacao span {
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            border: 1px solid var(--cor-padrao);
+            text-align: center;
+            line-height: 40px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .paginacao span:hover {
+            background: var(--cor-padrao);
+            color: var(--cor-fonte);
+        }
+
+        /*Detalhes*/
+
+        .ver-produto{
+            margin-top: 40px;
+        }
+
+        .ver-produto .col-2 img{
+            width: 100%;
+            padding: 0;
+        }
+
+        .ver-produto #produtoImg{
+            width: 600px;
+            height: 450px;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .ver-produto .col-2{
+            padding: 20px;
+        }
+
+        .ver-produto h4{
+            margin: 20px 0;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .ver-produto select{
+            display: block;
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid var(--cor-padrao);
+        }
+
+        .ver-produto select:focus{
+            outline: none;
+        }
+
+        .ver-produto input{
+            width: 50px;
+            height: 40px;
+            margin-right: 10px;
+            padding-left: 10px;
+            font-size: 20px;
+            border: 1px solid var(--cor-padrao);
+        }
+
+        .ver-produto input:focus{
+            outline: none;
+        }
+
+        .ver-produto .btn{
+            border: none;
+            background-color: var(--cor-padrao);
+            height: 42px;
+        }
+
+        .ver-produto .btn:hover{
+            cursor: pointer;
+        }
+
+        .ver-produto p{
+            font-size: 13px;
+        }
+
+        .img-linha{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .img-col{
+            flex-basis: 24%;
+            cursor: pointer;
+        }
+
+
+        @media (max-width:800px) {
+            .novoMenu .container .navbar nav ul {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background: var(--cor-btn-fonte);
+                width: 100%;
+                overflow: hidden;
+                transition: max-height 0.5s;
+            }
+
+            .novoMenu .container .navbar nav ul li {
+                display: block;
+                margin-right: 50px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+            .novoMenu .container .navbar nav ul li a {
+                color: var(--cor-fonte);
+            }
+
+            .novoMenu .container .navbar .menu-cel {
+                display: block;
+                cursor: pointer;
+            }
+
+            .novoMenu ul li a {
+                color: var(--cor-fonte);
+            }
+
+            .linha {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width:600px) {
+            .linha {
+                text-align: center;
+                flex-wrap: wrap;
+            }
+
+            .col-2,
+            .col-3,
+            .col-4 {
+                flex-basis: 100%;
+            }
+
+            .col-2 h1 {
+                font-size: 27;
+            }
+
+            .rodape-col-3,
+            .rodape-col-4 {
+                text-align: center;
+            }
+
+            .col-4 {
+                font-size: 24px;
+            }
+
+            .novoMenu ul li a {
+                color: var(--cor-fonte);
+            }
+
+            .ver-produto .col-2{
+                margin-top: 20px 0;
+            }
+
+            .ver-produto .linha{
+                text-align: left;
+            }
+
+            .ver-produto h1{
+                font-size: 26px;
+                line-height: 26px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="novoMenu">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="assets/img-2/logoEscura.png" width="125px">
+                </div>
+
+                <nav>
+                    <ul id="MenuItens">
+                        <li><a href="index.html" title="">Início</a></li>
+                        <li><a href="produtos.html" title="">Produtos</a></li>
+                        <li><a href="" title="">Sobre</a></li>
+                        <li><a href="" title="">Contatos</a></li>
+                        <li><a href="" title="">Login</a></li>
+                    </ul>
+                </nav>
+
+                <img src="assets/img-2/carrinho2.png" width="30px" height="30px">
+
+                <img class="menu-cel" src="assets/img/menu.png" id="menu-icon" onclick="menucel()">
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="corpo-categorias ver-produto" >
+        <div class="linha" style="display: flex;">
+            <div class="col-2">
+                <img src="assets/Imagens - csl/Iphone 12/Iphone 12.jpg" alt="" id="produtoImg">
+
+                <div class="img-linha">
+                    <div class="img-linha">
+                        <div class="img-col">
+                            <img class="produtoMiniatura" src="assets/Imagens - csl/Iphone 12/Iphone 12.jpg" width="100%">
+                        </div>
+                    </div>
+    
+                    <div class="img-linha">
+                        <div class="img-col">
+                            <img class="produtoMiniatura" src="assets/Imagens - csl/Iphone 12/Iphone 12 - 1.jpg" width="100%">
+                        </div>
+                    </div>
+                    
+                    <div class="img-linha">
+                        <div class="img-col">
+                            <img class="produtoMiniatura" src="assets/Imagens - csl/Iphone 12/Iphone 12 - 2.jpg" width="100%">
+                        </div>
+                    </div>
+    
+                    <div class="img-linha">
+                        <div class="img-col">
+                            <img class="produtoMiniatura" src="assets/Imagens - csl/Iphone 12/Iphone 12 - 3.jpg" width="100%">
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="col-2">
+                <h1>iPhone 12 64GB </h1>
+                <p>Iphone 12 roxo com Tela 6.10 e Câmera Dupla de 12MP</p>
+                <h4>R$ 5.249,00</h4>
+                <form action="">
+                    <select name="" id="">
+                        <option value="">Cores</option>
+                        <option value="">Branco</option>
+                        <option value="">Preto</option>
+                        <option value="">Azul</option>
+                        <option value="">Roxo</option>
+                        <option value="">Verde</option>
+                    </select>
+
+                    <input type="number" name="" id="" value="1">
+                    <button type="submit" class="btn">Adicionar ao carrinho</button>
+                </form>
+
+                <h3>Descição:</h3>
+
+                <p>O Apple iPhone 12 é um smartphone iOS com características inovadoras que o tornam uma excelente opção para qualquer tipo de utilização. A tela de 6.1 polegadas coloca esse Apple no topo de sua categoria. A resolução também é alta: 2532x1170 pixel. As funcionalidades oferecidas pelo Apple iPhone 12 são muitas e top de linha. Começando pelo 5G que permite a transferência de dados e excelente navegação na internet, além de conectividade Wi-fi e GPS presente no aparelho. Tem também leitor multimídia, videoconferência, e bluetooth. Enfatizamos a excelente memória interna de 256 GB mas sem a possibilidade de expansão. Câmera de 12 megapixel. A espessura de apenas 7.4 milímetros torna o Apple iPhone 12 um dos telefones mais finos que existem.</p>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="corpo-categorias">
+        <div class="linha linha-2">
+            <h2>Produtos relacionados</h2>
+            <p>Veja mais</p>
+        </div>
+        <div class="linha">
+            <div class="col-4">
+                <img src="assets/img/produto-9.jpg">
+                <h4>Curso De Cobranças</h4>
+                <div class="classificacao">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                </div>
+                <p>997,99</p>
+            </div>
+
+            <div class="col-4">
+                <img src="assets/img/produto-10.jpg">
+                <h4>Curso De Cobranças</h4>
+                <div class="classificacao">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                </div>
+                <p>997,99</p>
+            </div>
+
+            <div class="col-4">
+                <img src="assets/img/produto-11.jpg">
+                <h4>Curso De Cobranças</h4>
+                <div class="classificacao">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                </div>
+                <p>997,99</p>
+            </div>
+
+            <div class="col-4">
+                <img src="assets/img/produto-12.jpg">
+                <h4>Curso De Cobranças</h4>
+                <div class="classificacao">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                </div>
+                <p>997,99</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="rodape">
+        <div class="container">
+            <div class="linha">
+
+                <div class="rodape-col-1">
+                    <h3>Baixe nosso app</h3>
+                    <p>Baixe nossos aplicativos na plataformas</p>
+                    <div class="app-logo">
+                        <img src="assets/img/google.png" alt="">
+                        <img src="assets/img/apple.png" alt="">
+                    </div>
+                </div>
+
+                <div class="rodape-col-2">
+                    <img src="assets/img/logo-2.png" alt="">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                </div>
+
+                <div class="rodape-col-3">
+                    <h3>Mais informaçõs</h3>
+                    <ul>
+                        <li>Cupons</li>
+                        <li>blog</li>
+                        <li>Política de privacidade</li>
+                        <li>Contatos</li>
+                    </ul>
+                </div>
+
+                <div class="rodape-col-4">
+                    <h3>Redes sociais</h3>
+                    <ul>
+                        <li>Facebook</li>
+                        <li>intagram</li>
+                        <li>WhatsApp</li>
+                        <li>Youtube</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        function menucel() {
+            var menuItens = document.getElementById("MenuItens");
+            if (menuItens.style.display === "none") {
+                menuItens.style.display = "block";
+            } else {
+                menuItens.style.display = "none";
+            }
+        }
+
+        var produtoImg = document.getElementById("produtoImg");
+        var produtoMiniatura = document.getElementsByClassName("produtoMiniatura");
+
+        produtoMiniatura[0].onclick = function(){
+            produtoImg.src = produtoMiniatura[0].src;
+        }
+
+        produtoMiniatura[1].onclick = function(){
+            produtoImg.src = produtoMiniatura[1].src;
+        }
+
+        produtoMiniatura[2].onclick = function(){
+            produtoImg.src = produtoMiniatura[2].src;
+        }
+
+        produtoMiniatura[3].onclick = function(){
+            produtoImg.src = produtoMiniatura[3].src;
+        }
+    </script>
+
+</body>
+
+</html>
