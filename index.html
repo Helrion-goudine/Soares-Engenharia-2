@@ -38,6 +38,7 @@
         .banner {
             background: url(assets/galeria/oi.jpg);
             background-repeat: no-repeat;
+            background-size: 100%;
             background-size: cover;
             width: 100%;
             backdrop-filter: blur(2px);
@@ -153,46 +154,7 @@
             overflow-x: hidden;
             /* Prevenindo overflow horizontal */
         }
-
-        /* Responsividade */
-        @media (max-width: 800px) {
-            .banner .container .navbar nav ul {
-                position: absolute;
-                top: 70px;
-                left: 0;
-                background: var(--cor-btn-fonte);
-                width: 100%;
-                overflow: hidden;
-                transition: max-height 0.5s;
-            }
-
-            .menu-cel {
-                display: block;
-                cursor: pointer;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .linha {
-                text-align: center;
-            }
-
-            .col-2,
-            .col-3,
-            .col-4 {
-                flex-basis: 100%;
-            }
-
-            .rodape-col-3,
-            .rodape-col-4 {
-                text-align: center;
-            }
-
-            .col-4 {
-                font-size: 24px;
-            }
-        }
-
+        
         /*Estilos adicionais*/
 
         :root {
@@ -276,6 +238,10 @@
             text-align: center;
         }
 
+        .corpo-categorias h1{
+            font-size: 20px;
+        }
+
         .col-3 {
             flex-basis: 30%;
             max-width: 250px;
@@ -283,16 +249,103 @@
         }
 
         .col-3 img {
-            width: 100%;
+            width: 20%;
             object-fit: cover;
             object-position: center;
-            border-radius: 50%;
-            border: 1px solid #cb9d42;
+        }
+
+        .apresentacao {
+            background-color: #ffffff;
+            color: #001432;
+            padding: 2rem 0; /* Ajuste de espaçamento */
+            display: flex;
+            justify-content: center;
+        }
+
+        .apresentacao-corp {
+            display: flex;
+            align-items: flex-start; /* Alinha os itens ao topo */
+            justify-content: space-evenly;
+            width: 100%;
+            max-width: 1100px;
+            gap: 2rem; /* Espaço entre a imagem e o texto */
+        }
+
+        .apresentacao-container {
+            flex: 1;
+            max-width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Distribui o conteúdo igualmente */
+            height: 100%;
+        }
+
+        .apresentacao h1 {
+            margin: 0; /* Remove espaçamento extra */
+            font-size: 24px;
+        }
+
+        .apresentacao h6 {
+            margin: 0; /* Remove espaço extra entre h1 e h6 */
+            font-size: 13px;
+            font-weight: normal;
+            margin-bottom: 1rem; /* Pequeno espaço abaixo do h6 */
+        }
+
+        .p-apresentacao {
+            font-size: 14px;
+            line-height: 1.5;
+            text-align: justify;
+            max-width: 70%;
+        }
+
+        .botao {
+            display: inline-block;
+            background-color: #0056b3;
+            color: #fff;
+            padding: 8px 16px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            text-align: center;
+            align-self: flex-start;
+            margin-top: auto; /* Mantém o botão sempre na parte inferior */
+        }
+
+        .apresentacao img {
+            width: 20%; /* Ajuste da imagem */
+            border-radius: 0 15px 0 0;
+            object-fit: cover;
+        }
+
+        /* Responsivo para telas menores */
+        @media (max-width: 1024px) {
+            .apresentacao {
+                padding: 3rem 5vw;
+            }
+
+            .apresentacao-corp {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .apresentacao img {
+                width: 50%;
+            }
+
+            .apresentacao-container {
+                max-width: 90%;
+                align-items: center;
+            }
+
+            .botao {
+                align-self: center;
+            }
         }
 
         .col-3 p {
-            font-size: 20px;
-            font-weight: bold;
+            font-size: 15px;
             color: #001432;
         }
 
@@ -307,6 +360,9 @@
             justify-content: center;
             flex-wrap: wrap;
             color: #fff;
+            text-align: center;
+            padding: 10px;
+            justify-content: space-evenly;
         }
 
         #detail-2 h3 {
@@ -327,6 +383,8 @@
             justify-content: center;
             flex-wrap: wrap;
             color: #001432;
+            text-align: center;
+            justify-content: space-evenly;
         }
 
         #detail-3 h3 {
@@ -415,7 +473,7 @@
             position: relative;
             font-size: 2.5rem;
             line-height: 80px;
-            margin: 0 auto 80px;
+            margin:  80px;
             text-align: center;
             color: var(--cor-fonte-corpo);
         }
@@ -523,10 +581,11 @@
         }
 
         .rodape {
-            background: var(--cor-btn-fonte);
+            background: #001432;
             color: var(--cor-fonte);
             padding: 60px 0 20px;
             font-size: 14px;
+            justify-content: space-evenly;
         }
 
         .rodape p {
@@ -546,9 +605,6 @@
             margin-bottom: 20px;
         }
 
-        .rodape-col-1 {
-            flex-basis: 30%;
-        }
 
         .rodape-col-2 {
             flex: 1;
@@ -570,14 +626,6 @@
             list-style-type: none;
         }
 
-        .app-logo {
-            margin-top: 20px;
-        }
-
-        .app-logo img {
-            width: 140px;
-        }
-
         .menu-cel {
             display: none;
             width: 28px;
@@ -589,13 +637,26 @@
                 position: absolute;
                 top: 70px;
                 left: 0;
-                background: var(--cor-btn-fonte);
                 width: 100%;
                 overflow: hidden;
                 transition: max-height 0.5s;
+                background-color: #ffffff;
+                max-width: 200px;
+                align-items: right;
             }
 
-            .menu-cel {
+            .banner .container .navbar nav ul li {
+                display: block;
+                margin-right: 50px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+            .banner .container .navbar nav ul li a {
+                color: #001432;
+            }
+
+            .banner .container .navbar .menu-cel {
                 display: block;
                 cursor: pointer;
             }
@@ -613,7 +674,7 @@
             }
 
             .col-2 h1 {
-                font-size: 27px;
+                font-size: 27;
             }
 
             .rodape-col-3,
@@ -640,10 +701,10 @@
                 <nav>
                     <ul id="MenuItens">
                         <li><a href="" title="">Iníco</a></li>
-                        <li><a href="produtos.html" title="">Serviços</a></li>
+                        <li><a href="produtos.html" title="">Produtos</a></li>
                         <li><a href="" title="">Sobre</a></li>
                         <li><a href="" title="">Contatos</a></li>
-                        <li><a href="minha-conta.html" title="Portfólio">Portfólio</a></li>
+                        <li><a href="minha-conta.html" title="">Login</a></li>
                     </ul>
                 </nav>
 
@@ -675,28 +736,76 @@
 
     <div class="categorias">
         <div class="corpo-categorias">
+
+            <h1 style="font-size: 30px;  font-weight: 700; margin-bottom: 5%;" >Qualidade e segurança: 
+                <br><Span style="color: #cb9d42;"> É assim que se constrói! </Span></h1>
+
             <div class="linha">
+
+
                 <div class="col-3">
-                    <img src="assets/galeria/img-01.jpg">
+                    <img src="assets/galeria/features1.png">
+                    <h1>Política de Qualidade</h1>
                     <p class="col-3-p">
-                        Sicoob UniCentro
+                        Atuar no setor da construção civil nas áreas da habitação, comercial e 
+                        industrial, desenvolvendo produtos e oferecendo serviços com equipes 
+                        qualificadas que prezam pela sustentabilidade em seus processos de fabricação, 
+                        garantindo a satisfação dos clientes, o respeito ao meio ambiente e a 
+                        melhoria contínua do Sistema de Gestão da Qualidade.
                     </p>
                 </div>
                 <div class="col-3">
-                    <img src="assets/galeria/img-02.jpg">
+                    <img src="assets/galeria/features2.png">
+                    <h1>Política de Qualidade</h1>
                     <p class="col-3-p">
-                        BRB - Banco de Brasília
+                        Nossa empresa possui corpo técnico e administrativo altamente qualificado, 
+                        que visa a melhoria contínua de seus processos, gerando soluções diferenciadas 
+                        aos clientes.
                     </p>
                 </div>
                 <div class="col-3">
-                    <img src="assets/galeria/img-03.jpg">
+                    <img src="assets/galeria/features3.png">
+                    <h1>Política de Qualidade</h1>
                     <p class="col-3-p">
-                        LaFerri Loja
+                        Desde 2010, se destacando no mercado ao entregar obras de alta e média 
+                        complexidade, com máxima agilidade, segurança e eficiência. A cada construção, 
+                        temos o compromisso de sempre proporcionar total satisfação aos clientes por 
+                        meio da garantia do alto padrão de qualidade e atendimento aos prazos.
                     </p>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Separação -->
+
+    <section class="apresentacao" id="apresentacao">
+        <div class="apresentacao-corp">
+            <img src="assets/galeria/Fabiana.jpg" alt="Fabiana Soares">
+            <div class="apresentacao-container">
+                <h1>Fabiana Soares</h1>
+                <h6>Engenharia Civil</h6>
+                <p class="p-apresentacao">
+                    Engenheira responsável pela Soares Engenharia, formada pela
+                    Universidade do Planalto localizada no Distrito Federal,
+                    especialista em Técnico de Edificações pelo SENAI/DF.
+                    Atuou juntamente com o Governo Distrital nas obras de Viadutos
+                    e Construções.
+                    Assim como possui experiência registrada como Engenheira Civil
+                    e de Produção em Grandes empresas Brasileiras como Paulo
+                    Octavio e JC Gotijo.
+                    Tem como foco a busca pela excelência e a satisfação de seus
+                    clientes e prestando sempre um trabalho seguro, eficaz e com
+                    qualidade.
+
+                </p>
+                <a href="#" class="botao">Saiba Mais</a>
+            </div>
+        </div>
+    </section>
+    
+    
+    
 
     <!-- Separação -->
 
@@ -949,20 +1058,6 @@
         <div class="container">
             <div class="linha">
 
-                <div class="rodape-col-1">
-                    <h3>Baixe nosso app</h3>
-                    <p>Baixe nossos aplicativos na plataformas</p>
-                    <div class="app-logo">
-                        <img src="assets/img/google.png" alt="">
-                        <img src="assets/img/apple.png" alt="">
-                    </div>
-                </div>
-
-                <div class="rodape-col-2">
-                    <img src="assets/galeria/Logo.png" alt="">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                </div>
-
                 <div class="rodape-col-3">
                     <h3>Mais informaçõs</h3>
                     <ul>
@@ -973,13 +1068,17 @@
                     </ul>
                 </div>
 
+                <div class="rodape-col-2">
+                    <img src="assets/galeria/Logo.png" alt="">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                </div>
+
                 <div class="rodape-col-4">
                     <h3>Redes sociais</h3>
                     <ul>
                         <li>Facebook</li>
                         <li>intagram</li>
                         <li>WhatsApp</li>
-                        <li>Youtube</li>
                     </ul>
                 </div>
 
@@ -992,13 +1091,16 @@
     <script>
         function menucel() {
             var menuItens = document.getElementById("MenuItens");
-            if (menuItens.style.display === "none") {
-                menuItens.style.display = "block";
-            } else {
+            if (menuItens.style.display === "block") {
                 menuItens.style.display = "none";
+            } else {
+                menuItens.style.display = "block";
             }
         }
     </script>
+
+
+
 
 </body>
 
